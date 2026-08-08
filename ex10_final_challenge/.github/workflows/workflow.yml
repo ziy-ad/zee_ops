@@ -1,21 +1,23 @@
-name: env
-on: 
-  push: 
-    branches: ['main']
+name: merge everything
+on:
   pull_request:
+  push:
+    branches: [main]
+
+env:
+    PROJECT_NAME: "ZeroOps production"
+
 
 jobs:
-  job1:
-    runs-on: ubuntu-latest
-    env:
-      PROJECT_NAME: "ZeroOps Production"
-
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-
-      - run: pip install -r requirements.txt 
-      - run: python -m pytest
-      - run: echo "you success to validate all the requirements"
+    job1:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-python@v5
+              with:
+                python-version: '3.11'
+            - run: echo "${#PROJECT_NAME}"
+            - run: |
+                    pip install -r requirements.txt
+                    python -m pytest
+                    echo "Pipeline succeeded"

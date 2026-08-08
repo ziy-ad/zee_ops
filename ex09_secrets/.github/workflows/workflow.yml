@@ -1,0 +1,11 @@
+name: secret variables
+on: push
+env:
+    API_KEY: ${secrets.API_KEY}}
+
+
+jobs:
+    access_secrets:
+        runs-on: ubuntu-latest
+        steps:
+        - run: echo "Key length ${#API_KEY}"

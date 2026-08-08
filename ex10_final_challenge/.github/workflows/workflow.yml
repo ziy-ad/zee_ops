@@ -17,7 +17,6 @@ jobs:
               with:
                 python-version: '3.11'
             - run: echo "${#PROJECT_NAME}"
-
             - run: |
                     pip install -r requirements.txt
                     python -m pytest

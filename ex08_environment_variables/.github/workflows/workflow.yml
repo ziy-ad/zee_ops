@@ -1,0 +1,14 @@
+name: define env
+on: push
+
+env:
+  PROJECT_NAME: ZeroOps
+  AUTHOR: zee
+
+
+jobs:
+    access-env:
+        runs-on: ubuntu-latest
+        steps:
+        - uses: actions/chekout@v4
+        - run: echo "$PROJECT_NAME by $AUTHOR"

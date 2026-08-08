@@ -1,0 +1,19 @@
+name: check commits
+on: pull_request
+
+jobs:
+    check_before_merge:
+        runs-on: ubuntu-latest
+        steps:
+            - name: checkout code
+              uses: actions/checkout@v4
+
+            - name: check python version
+              run: python --version
+
+
+            - name: print current directory
+              run: pwd
+            
+            - name: list all repository files
+              run: ls -la

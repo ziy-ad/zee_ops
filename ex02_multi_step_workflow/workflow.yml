@@ -1,0 +1,22 @@
+name: context variables
+
+
+
+
+jobs:
+  context_variables:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v4
+      
+      - name: repository check
+        run: echo "Repository ${{github.repository}}"
+      
+      - name: branch check
+        run: echo "Branch ${{github.ref_name}}"
+
+      - name: ssh commit
+        run: echo "Commit SHA ${{github.sha}}"
+
+       
